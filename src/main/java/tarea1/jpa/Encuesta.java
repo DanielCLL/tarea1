@@ -24,13 +24,16 @@ public class Encuesta implements Serializable {
 	@ManyToMany(mappedBy = "encuestas")
 	private List<Grupo_asignatura> grupo_asignaturas;
 	
+	@ManyToOne
+	private Expedientes expedientes;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Encuesta() {
 		super();
 	}   
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
@@ -42,6 +45,22 @@ public class Encuesta implements Serializable {
 
 	public void setFecha_envio(Date fecha_envio) {
 		this.fecha_envio = fecha_envio;
+	}
+	
+	public Expedientes getExpedientes () {
+		return expedientes;
+	}
+	
+	public void setExpedientes (Expedientes expedientes) {
+		this.expedientes = expedientes;
+	}
+	
+	public Grupos_Por_Asignatura getGrupos_Por_Asignatura () {
+		return grupo_asignaturas;
+	}
+	
+	public void setGrupos_Por_Asignatura (Grupos_Por_Asignatura grupos_asignatura) {
+		this.gpa = grupos_asignatura;
 	}
    
 }
